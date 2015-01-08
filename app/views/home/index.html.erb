@@ -1,0 +1,116 @@
+
+
+
+    <div id="top" class="jumbotron">
+      <div class="container">
+         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                   <h1>Programación por Pares</h1>
+                   <h2>Técnica para el desarrollo de software ágil.</h2>
+                <p>
+                <% if user_signed_in? %>
+                     <%= link_to "salir", destroy_user_session_path, method: :delete %>
+                <% end %>
+                 <%= link_to ('Registrarse <span class="glyphicon glyphicon-circle-arrow-right"></span>').html_safe, new_user_registration_path , class:"btn btn-warning btn-lg" %>
+               </p>
+
+              </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+           </div>
+
+      </div> <!-- /.container -->
+    </div> <!-- /.jumbotron -->
+<h3 id="benefits" class="subhead">Pair Dev</h3>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4 col-sm-6 benefit">
+          <div class="benefit-ball">
+            <span class="glyphicon glyphicon-file"></span>
+          </div>
+          <h3>Código en tiempo real</h3>
+          <p>Programa en pareja en tiempo real y agiliza tu software</p>
+        </div> <!-- /.benefit -->
+
+        <div class="col-md-4 col-sm-6 benefit">
+          <div class="benefit-ball">
+            <span class="glyphicon glyphicon-cloud"></span>
+          </div>
+          <h3>Seguridad en la Nube</h3>
+          <p>Guarda tu codigo en la nube y genera las versiones de tu codigo</p>
+        </div> <!-- /.benefit -->
+
+        <div class="col-md-4 col-sm-6 benefit">
+          <div class="benefit-ball">
+            <span class="glyphicon glyphicon-facetime-video"></span>
+          </div>
+          <h3>Video</h3>
+          <p>Comparte con tu pareja videocam y aumenta tu productividad</p>
+        </div> <!-- /.benefit -->
+   </div>
+
+     <h3 id="tour" class="subhead">Pair Dev</h3>
+
+      <div class="sect-border"></div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="slideshow" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+              <li data-target="#slideshow" data-slide-to="1"></li>
+              <li data-target="#slideshow" data-slide-to="2"></li>
+              <li data-target="#slideshow" data-slide-to="3"></li>
+              <li data-target="#slideshow" data-slide-to="4"></li>
+            </ol>
+
+            <div class="carousel-inner">
+              <div class="item active">
+                <%= image_tag("stock1.jpg") %>
+
+                <div class="carousel-caption">
+                  pair programing <a href="#">pair-dev</a>
+                </div>
+              </div>
+              <div class="item">
+                 <%= image_tag("stock2.jpg") %>
+
+                <div class="carousel-caption">
+                  mike-dev
+                </div>
+              </div>
+
+
+            </div>
+
+            <a class="left carousel-control" href="#slideshow" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#slideshow" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div> <!-- #slideshow -->
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+
+      <div class="sect-border"></div>
+
+      <h3 id="about" class="subhead">Pair Dev</h3>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 text-center">
+          <p>Plataforma para programación en parejas y agilizar el desarrollo de tu proyecto.</p>
+          <p>Disfruta de una atractiva interfaz donde podras hacerle seguimiento a tus archivos gracias al versionamiento que brindamos y hacer una comunicación atractiva.</p>
+        </div> <!-- /.col-md-10 -->
+      </div> <!-- /.row -->
+
+    </div> <!-- /.container -->
+
+<footer>
+      <div class="container clearfix">
+        <p class="pull-left">
+          Copyright &copy; Pair Dev 2015
+        </p>
+        <p class="pull-right">
+          Mike-dev
+        </p>
+      </div> <!-- /.container -->
+    </footer>
