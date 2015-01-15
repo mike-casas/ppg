@@ -1,0 +1,21 @@
+
+<h1>project</h1>
+
+<%= @project.name %>
+
+<br/>
+
+
+    <%= form_tag project_documents_path(@project.id), method: :post  do %>
+    <%= text_field_tag :file_name %>
+    <%= hidden_field_tag :project_ide, @project_id%>
+    <%= submit_tag "guardar"%>
+  <% end %>
+
+
+  <% Dir.glob("storage/#{@project.id}/*").each do |file| %>
+
+    <li><%= link_to file.split('/').last, project_document_path(@project.id,@project.id,name:file) %></li>
+  <% end %>
+
+

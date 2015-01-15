@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :documents ,only: [:show, :create, :update, :destroy]
+  end
 
   get 'dashboard/index'
 

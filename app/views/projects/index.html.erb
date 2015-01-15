@@ -2,6 +2,27 @@
 
   <%= render "form" %>
 
-<% @projects.each do |t| %>
-  <p> <%= t.name %></p>
-<% end %>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @projects.each do |t| %>
+      <tr>
+        <td><%= t.name %></td>
+        <td><%= link_to "ver",project_path(t) %></td>
+        <td><%= link_to "editar",edit_project_path(t) %></td>
+        <td><%= link_to "eliminar",project_path(t), method: :delete , data: { confirm: "Deseas eliminar este registro"} %></td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+</div>
+
+
+

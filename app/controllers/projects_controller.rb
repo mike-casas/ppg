@@ -1,7 +1,8 @@
+  require 'fileutils'
+
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
-  layout "Dashboard"
   def index
     @projects=Project.all
     @project= Project.new
@@ -13,10 +14,16 @@ class ProjectsController < ApplicationController
 
   def create
      @project= Project.create(project_params)
-
      @project.users << current_user
 
+     FileUtils.mkdir "storage/#{@project.id.to_s}"
+
+
      redirect_to projects_path
+  end
+
+  def show
+     @project= Project.find(params[:id])
   end
 
   def edit
@@ -29,7 +36,11 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project= Project.destroy(params[:id])
+    FileUtils.rm_rf "storage/#{@project.id.to_s}"
+    redirect_to @project
   end
+
+
  private
    def project_params
      params.require(:project).permit(:name)
