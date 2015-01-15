@@ -15,6 +15,13 @@
 //= require turbolinks
 //= require_tree
 //= require bootstrap-sprockets
+//= require codemirror
+//= require codemirror/modes/xml
+//= require codemirror/modes/htmlmixed
+//= require codemirror/modes/javascript
+//= require codemirror/modes/ruby
+//= require codemirror/modes/haml
+//= require codemirror/keymaps/vim
 
 
 

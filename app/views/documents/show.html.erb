@@ -1,9 +1,10 @@
+<div class="container">
 
 <h1>documento</h1>
 
 <%= form_tag project_document_path,method: :put  do %>
 <%= text_area_tag(:text, "#{@content}" ) %>
-<%= hidden_field_tag :parameter, @parameter %>
+<%= hidden_field_tag :parameter, @parameter %><br/>
 <%= submit_tag "guardar"%>
 <% end %>
 
@@ -16,10 +17,13 @@
     }
 }</div>
  -->
- <textarea id="editor"></textarea>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-    editor.getSession().setMode("ace/mode/javascript");
 
+<script>
+  $("textarea").each(function() {
+    CodeMirror.fromTextArea($(this).get(0), {
+      lineNumbers: true,
+      mode: "text/javascript"
+    });
+  });
 </script>
+</div>

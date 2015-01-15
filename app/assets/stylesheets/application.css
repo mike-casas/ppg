@@ -11,6 +11,9 @@
  * file per style scope.
  *
  *= require custom_bootstrap
+ *= require codemirror
+ *= require codemirror/midnight
+ *= require_tree
  *= require_self
  */
 
