@@ -51,3 +51,5 @@ gem 'rails_12factor', group: [:production]
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem "font-awesome-rails"
+#editor javascript
+gem 'aced_rails', :github => 'ffloyd/aced_rails'

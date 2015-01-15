@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ffloyd/aced_rails.git
+  revision: a0df4bbaf1d53959b49a21431bb203e601d864eb
+  specs:
+    aced_rails (0.2.1)
+      rails (>= 3.2, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -184,6 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aced_rails!
   annotate (~> 2.6.5)
   bootstrap-sass (~> 3.3.1)
   byebug
