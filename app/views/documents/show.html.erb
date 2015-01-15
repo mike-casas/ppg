@@ -1,10 +1,25 @@
+
 <h1>documento</h1>
 
 <%= form_tag project_document_path,method: :put  do %>
-<%= text_area_tag(:text, "#{@content}", :size => "50x10") %>
+<%= text_area_tag(:text, "#{@content}" ) %>
 <%= hidden_field_tag :parameter, @parameter %>
 <%= submit_tag "guardar"%>
 <% end %>
 
     <li><%= link_to "eliminar", project_document_path(name:@parameter), method: :delete %></li>
 
+<!-- <div id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}</div>
+ -->
+ <textarea id="editor"></textarea>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.getSession().setMode("ace/mode/javascript");
+
+</script>
