@@ -1,15 +1,17 @@
+
+
 <div class="container">
 
 <h1>documento</h1>
 
 <%= form_tag project_document_path,method: :put  do %>
-<%= text_area_tag(:text, "#{@content}" ) %>
+<%= text_area_tag(:text, "#{@content}" ,:id=> "room-text") %>
 <%= hidden_field_tag :parameter, @parameter %><br/>
 <%= submit_tag "guardar"%>
 <% end %>
 
     <li><%= link_to "eliminar", project_document_path(name:@parameter), method: :delete %></li>
-
+  <button id="room-join">join</button>
 <!-- <div id="editor">function foo(items) {
     var i;
     for (i = 0; i &lt; items.length; i++) {
@@ -18,15 +20,78 @@
 }</div>
  -->
 
-<script>
-  $("textarea").each(function() {
-    var v= CodeMirror.fromTextArea($(this).get(0), {
+
+
+
+ <script>
+
+
+
+
+     editor= CodeMirror.fromTextArea($("#room-text").get(0), {
       lineNumbers: true,
       styleActiveLine: true,
     matchBrackets: true,
       mode: "javascript",
-      theme: "midnight"
+      theme: "midnight",
+      indentUnit : 4,
+      gutter: true
         });
+
+
+  var joined = false;
+
+   var room = io.connect('http://localhost:5000/room');
+   var content = $('#room-text');
+  room.on('connect', function() {
+
+    //content.append($('<p>').text('Connected'));
   });
-</script>
+
+  room.on('joined', function(msg) {
+
+    //editor.setValue(msg);
+  });
+
+  room.on('message', function(msg) {
+    //editor.setValue(msg);
+
+     var obj=JSON.parse(msg);
+       a=obj.from[0];
+       b=obj.from[1];
+       t=obj.text.join('\n');
+      console.log(a +" "+ b+""+t);
+
+
+    editor.doc.replaceRange(t, CodeMirror.Pos(a,b));
+
+
+   // a.join('/n');
+  });
+
+
+
+
+
+
+      editor.on('change', function(editor,changeobj) {
+
+        var j= {
+          from: [changeobj.from.line, changeobj.from.ch],
+          text: changeobj.text
+        }
+
+        msg = JSON.stringify(j);
+        room.emit('fromclient', msg);
+    });
+
+
+
+
+ </script>
+
+
+
+
+
 </div>

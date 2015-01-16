@@ -71,12 +71,16 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    event_emitter (0.2.5)
     execjs (2.2.2)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
@@ -94,6 +98,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -151,6 +156,11 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     slop (3.6.0)
+    socket.io-client-simple (1.1.2)
+      event_emitter
+      httparty
+      json
+      websocket-client-simple (>= 0.2.1)
     spring (1.2.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -179,6 +189,10 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    websocket (1.2.1)
+    websocket-client-simple (0.2.2)
+      event_emitter
+      websocket
 
 PLATFORMS
   ruby
@@ -198,6 +212,7 @@ DEPENDENCIES
   roadie (~> 2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  socket.io-client-simple
   spring
   sqlite3
   turbolinks

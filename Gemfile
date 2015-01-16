@@ -56,3 +56,6 @@ gem "font-awesome-rails"
 #gem 'ace-rails-ap'
 
 #gem 'codemirror-rails'
+
+#socket io
+gem 'socket.io-client-simple'
