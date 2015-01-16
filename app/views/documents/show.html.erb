@@ -20,10 +20,13 @@
 
 <script>
   $("textarea").each(function() {
-    CodeMirror.fromTextArea($(this).get(0), {
+    var v= CodeMirror.fromTextArea($(this).get(0), {
       lineNumbers: true,
-      mode: "text/javascript"
-    });
+      styleActiveLine: true,
+    matchBrackets: true,
+      mode: "javascript",
+      theme: "midnight"
+        });
   });
 </script>
 </div>

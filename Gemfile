@@ -55,4 +55,4 @@ gem "font-awesome-rails"
 #editor javascript
 #gem 'ace-rails-ap'
 
-gem 'codemirror-rails'
+#gem 'codemirror-rails'
