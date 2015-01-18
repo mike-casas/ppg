@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
+
   resources :projects do
     resources :documents ,only: [:show, :create, :update, :destroy]
   end
 
+  resources :projects do
+     resources :invitations, only: [:new,:create,:destroy]
+  end
   get 'dashboard/index'
 
   root 'home#index'

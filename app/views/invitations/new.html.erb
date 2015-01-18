@@ -1,0 +1,7 @@
+<h1>Invitations#new</h1>
+
+  <%= form_tag project_invitations_path(@project.id), method: :post  do %>
+  <%= text_field_tag :member_name %>
+  <%= hidden_field_tag :project_id, @project_id%>
+  <%= submit_tag "guardar"%>
+<% end %>

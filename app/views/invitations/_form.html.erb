@@ -1,0 +1,17 @@
+<div class="modal-body">
+  <div class="form-group">
+    <%= form_tag project_invitations_path(@project.id), method: :post ,remote: true  do %>
+     <%=label_tag :member_name, "email" %>
+    <%= text_field_tag :member_name %>
+    <%= hidden_field_tag :project_id, @project_id%>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= submit_tag "Enviar",class:"btn btn-success"%>
+</div>
+  <% end %>
+
+
+
+

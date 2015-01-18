@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @projects=Project.all
+    @owned_projects= current_user.owned_projects
+    @invited_projects= current_user.invited_projects
     @project= Project.new
   end
 
@@ -14,10 +15,10 @@ class ProjectsController < ApplicationController
 
   def create
      @project= Project.create(project_params)
-     @project.user = current_user
+     @project.user_id = current_user.id
 
-     #controles create
-     #@project.users << User.find(parametro enviado)
+     @project.save
+
 
      FileUtils.mkdir "storage/#{@project.id.to_s}"
 
@@ -27,6 +28,7 @@ class ProjectsController < ApplicationController
 
   def show
      @project= Project.find(params[:id])
+     @members= @project.members
   end
 
   def edit
