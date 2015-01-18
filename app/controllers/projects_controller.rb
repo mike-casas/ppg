@@ -14,7 +14,10 @@ class ProjectsController < ApplicationController
 
   def create
      @project= Project.create(project_params)
-     @project.users << current_user
+     @project.user = current_user
+
+     #controles create
+     #@project.users << User.find(parametro enviado)
 
      FileUtils.mkdir "storage/#{@project.id.to_s}"
 
