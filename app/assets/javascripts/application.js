@@ -16,6 +16,10 @@
 //= require turbolinks
 //= require_tree
 //= require bootstrap-sprockets
+//= require retina
+//= require jquery.easing.1.3
+//= require smoothscroll
+//= require jquery-func
 //= require codemirror
 //= require codemirror/modes/xml
 //= require codemirror/modes/htmlmixed
@@ -33,5 +37,6 @@
         $("html,body").animate({scrollTop: $(href).offset().top - 80}, 500);
         link.closest(".navbar").find(".navbar-toggle:not(.collapsed)").click();
       });
+
 
 
