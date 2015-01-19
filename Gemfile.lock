@@ -87,6 +87,9 @@ GEM
       json
       multi_json
       request_store (>= 1.0.5)
+    gravatar-ultimate (2.0.0)
+      activesupport (>= 2.3.14)
+      rack
     guard (2.11.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -246,6 +249,7 @@ DEPENDENCIES
   devise
   font-awesome-rails
   gon
+  gravatar-ultimate
   guard
   jbuilder (~> 2.0)
   jquery-rails

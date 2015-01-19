@@ -115,6 +115,43 @@
      -webkit-overflow-scrolling: touch;
  }
 
+.top{
+   margin-top: 60px
+}
+#container-header{
+
+   padding-top: 80px;
+   margin-top: 50px;
+}
+
+.btn-default .outline {
+border: 2px solid #0099cc;
+color: #0099cc;
+}
+.btn.outline {
+background: none;
+
+}
+.btn-default {
+background: #0099cc;
+color: #ffffff;
+font-size: 20px;
+}
+
+#login-navbar{
+  background-color: rgba(92,184,92,0.3);
+  color: white;
+  font-weight: bold;
+  margin: 2px;
+  border-radius: 6px;
+}
+
+#sign-up{
+  font-size: 20px;
+  width:300px;
+
+ }
+
  .col-md-4 {
   padding-bottom: 20px;
  }
