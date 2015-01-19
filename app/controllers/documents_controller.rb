@@ -2,9 +2,11 @@ require 'fileutils'
 class DocumentsController < ApplicationController
 
   def create
+      @project= Project.find(params[:project_id])
+      @path = "storage/#{params[:project_id]}/#{params[:file_name].to_s}"
+     FileUtils.touch @path
 
-     FileUtils.touch "storage/#{params[:project_id]}/#{params[:file_name].to_s}"
-     redirect_to project_path(params[:project_id])
+     #redirect_to project_path(params[:project_id])
   end
 
   def show

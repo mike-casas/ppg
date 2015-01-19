@@ -6,7 +6,8 @@ class InvitationsController < ApplicationController
   def create
     @project=  Project.find(params[:project_id])
     @project.members << User.find_by_email(params[:member_name])
-    
+
+
   end
 
   def destroy

@@ -32,7 +32,7 @@
 
 
 
-    <%= form_tag project_documents_path(@project.id), method: :post  do %>
+    <%= form_tag("#{project_documents_path(@project.id)}", remote: true) do %>
     <%= text_field_tag :file_name %>
     <%= hidden_field_tag :project_id, @project.id%>
     <%= submit_tag "guardar"%>
