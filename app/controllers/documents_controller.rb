@@ -10,6 +10,8 @@ class DocumentsController < ApplicationController
   end
 
   def show
+     @project= Project.find(params[:project_id])
+     gon.channel = @project.id
 
      @parameter= params[:name]
      @content= File.read("#{params[:name]}")

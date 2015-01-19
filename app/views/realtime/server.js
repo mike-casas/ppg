@@ -11,10 +11,11 @@ var Room = io
   .of('/room')
   .on('connection', function(socket) {
     var joinedRoom = null;
-       data="chat-mike";
-      socket.join(data);
-      console.log(data);
-      joinedRoom = data;
+      socket.on('join room', function(data) {
+          socket.join(data);
+          console.log(data);
+          joinedRoom = data;
+       });
 
     socket.on('fromclient', function(data) {
       if (joinedRoom) {
@@ -28,8 +29,6 @@ var Room = io
       }
     });
   });
-
-
 
 
 server.listen(port, function () {

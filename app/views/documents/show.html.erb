@@ -1,116 +1,12 @@
-
-
 <div class="container">
-
-<h1>documento</h1>
-
-<%= form_tag project_document_path,method: :put  do %>
-<%= text_area_tag(:text, "#{@content}" ,:id=> "room-text") %>
-<%= hidden_field_tag :parameter, @parameter %><br/>
-<%= submit_tag "guardar"%>
-<% end %>
-
-    <li><%= link_to "eliminar", project_document_path(name:@parameter), method: :delete %></li>
-  <button id="room-join">join</button>
-
-
-
- <script>
-
-
-
-     editor= CodeMirror.fromTextArea($("#room-text").get(0), {
-      lineNumbers: true,
-      styleActiveLine: true,
-      matchBrackets: true,
-      mode: "javascript",
-      theme: "midnight",
-      indentUnit : 4,
-      gutter: true
-        });
-
-
-  var joined = false;
-
-   var room = io.connect('http://localhost:5000/room');
-   var content = $('#room-text');
-  room.on('connect', function() {
-
-    //content.append($('<p>').text('Connected'));
-  });
-
-  room.on('joined', function(msg) {
-
-    //editor.setValue(msg);
-  });
-
-  room.on('message', function(msg) {
-    //editor.setValue(msg);
-
-     var obj=JSON.parse(msg);
-
-
-
-        a=obj.from.line;
-        b=obj.from.ch;
-        t=obj.text.join('\n');
-
-       console.log(obj);
-        if(obj.origin== "+delete")
-        {
-
-          posFrom = CodeMirror.Pos(obj.from.line, obj.from.ch)
-          posTo = CodeMirror.Pos(obj.to.line, obj.to.ch)
-
-        editor.doc.replaceRange('', posFrom,posTo, "ignore");
-
-
-        }else {
-          editor.doc.replaceRange(t, CodeMirror.Pos(a,b), null, "ignore");
-        }
-
-
-
-     });
-
-
-
-
-
-
-      editor.on('change', function(editor,changeobj) {
-
-       if(changeobj.origin != "ignore"){
-
-       var j= {
-           from: [changeobj.from.line, changeobj.from.ch],
-        text: changeobj.text,
-          origin: changeobj.origin
-          }
-
-         msg = JSON.stringify(changeobj);
-         room.emit('fromclient', msg);
-         }
-    //     console.log(changeobj);
-     });
-
-
-  // editor.on("change", function (cm, change) {
-  //   var from = change.from;
-  //   var text = change.text.join("\n");
-  //   var removed = change.removed.join("\n");
-  //   var to =  cm.posFromIndex(cm.indexFromPos(from) + text.length);
-
-  //   var before = cm.getRange({ line: 0, ch: 0 }, from);
-  //   var after = cm.getRange(to, { line: cm.lineCount() + 1, ch: 0 });
-
-  //   console.log( before, text, after);
-  // });
-
- </script>
-
-
-
-
+  <h1>documento</h1>
+  <%= form_tag project_document_path,method: :put  do %>
+  <%= text_area_tag(:text, "#{@content}" ,:id=> "room-text") %>
+  <%= hidden_field_tag :parameter, @parameter %><br/>
+  <%= submit_tag "guardar"%>
+  <% end %>
+  <li><%= link_to "eliminar", project_document_path(name:@parameter), method: :delete %></li>
 
 </div>
+
+
