@@ -1,5 +1,8 @@
 <% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>">
+<div class="container">
+ <div class="row container-msg">
+  <div class="col-lg-6 col-lg-offset-3 ">
+  <div class="msg alert alert-<%= key %>">
     <a href="#" data-dismiss="alert" class="close">×</a>
       <ul>
         <li>
@@ -8,3 +11,6 @@
       </ul>
   </div>
 <% end %>
+</div>
+</div>
+</div>

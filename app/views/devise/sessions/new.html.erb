@@ -1,8 +1,10 @@
-<div class="container top ">
+<div class="container top">
+
   <div class="col-lg-6 col-lg-offset-3 container-login ">
     <h2>Entrar</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
          <span class="input input--hideo">
           <%= f.email_field :email,class:"input__field input__field--hideo" ,placeholder:"Email"%>
@@ -30,8 +32,6 @@
 
               <%= render "devise/shared/links" %>
          </span>
-
-
 
 </div>
 </div>
