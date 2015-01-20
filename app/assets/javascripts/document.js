@@ -1,4 +1,4 @@
- $(document).on("page:change", function(){
+function init(channel){
 
 // config editor codemirror
 
@@ -19,9 +19,11 @@
    var content = $('#room-text');
 
 
-  console.log (gon.channel);
 
-  room.emit('join room', '<%= @room %>');
+
+     room.emit('join room', channel);
+     alert(channel);
+
 
 
 
@@ -54,5 +56,5 @@
      }
    });
 
-});
+};
 

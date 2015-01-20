@@ -9,29 +9,33 @@
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
-  <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+  <body data-spy="scroll" data-offset="0" data-target="#navbar-main" class="bgcolor-3">
       <div id="navbar-main">
       <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span style="font-size:30px; color:#3498db;">PairDev</span>
+            <span style="font-size:30px; color:#3498db;"><strong>PairDev</strong></span>
           </button>
-          <%= link_to ('<span style="font-size:18px; color:#3498db;">Pair Dev</span>').html_safe, root_path , class:"navbar-brand hidden-xs hidden-sm"%>
+          <%= link_to ('<span style="font-size:18px; color:#3498db;"><strong>PairDev</strong></span>').html_safe, root_path , class:"navbar-brand hidden-xs hidden-sm"%>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#home" class="smoothScroll">Home</a></li>
+            <% if current_page?(root_path) %>
             <li> <a href="#about" class="smoothScroll"> Nosotros</a></li>
             <li> <a href="#team" class="smoothScroll"> Equipo</a></li>
             <li> <a href="#contact" class="smoothScroll"> Contacto</a></li>
+            <% end %>
             <li><%= link_to "Entrar", new_user_session_path , id:"login-navbar"%></li>
+             <% if user_signed_in? %>
+             <li><%= link_to "Salir", destroy_user_session_path ,method: :delete %></li>
+             <% end %>
         </div><!--/.nav-collapse -->
       </div>
     </div>
     </div>
-
+<%= render 'layouts/messages' %>
 
 
 <%= yield %>
