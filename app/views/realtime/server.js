@@ -17,7 +17,21 @@ var Room = io
           joinedRoom = data;
        });
 
-    socket.on('fromclient', function(data) {
+    //editor
+    socket.on('event_editor', function(data) {
+      if (joinedRoom) {
+          socket.broadcast.to(joinedRoom).send(data);
+      } else {
+        socket.send(
+           "you're not joined a room." +
+           "select a room and then push join."
+        );
+      }
+    });
+
+    // show file create
+
+    socket.on('event_file_create', function(data) {
       if (joinedRoom) {
          console.log(data);
          socket.broadcast.to(joinedRoom).send(data);
@@ -28,6 +42,7 @@ var Room = io
         );
       }
     });
+
   });
 
 

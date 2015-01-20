@@ -1,5 +1,6 @@
-!function ($) {
-	//=================================== scroll  ===================================//
+$(document).on('page:change',funtion(){
+
+  //=================================== scroll  ===================================//
 
 $body.scrollspy({
       target: '#navbar-main',
@@ -14,5 +15,5 @@ $body.scrollspy({
       e.preventDefault()
     })
 
-
 });
+

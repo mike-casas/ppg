@@ -1,6 +1,14 @@
 
+text = "<%= j render 'link_filename' %>"
+$('#list_file').append(text);
 
-$('#list_file').append("<%= j render 'link_filename' %>");
+obj={
+   evento: "event_file_create",
+   data: text
+}
 
- room.emit('join room', '<%= @room %>');
+ msg = JSON.stringify(obj);
+
+room.emit('event_file_create', msg);
+
 $('#file_name').val('');
