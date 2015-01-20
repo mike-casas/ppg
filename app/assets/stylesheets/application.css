@@ -116,6 +116,9 @@
      -webkit-overflow-scrolling: touch;
  }
 
+#msg-alert{
+  display: none;
+}
 
 .container-login{
    background-color: rgba(255,255,255, 0.3);

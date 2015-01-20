@@ -20,19 +20,23 @@
     </thead>
     <tbody>
     <% @members.each do |t| %>
-      <tr>
+      <tr id="<%= t.id%>">
         <td><%= t.name %></td>
         <td><%= t.id %></td>
+        <td><%= link_to "Eliminar",  project_invitation_path(@project.id,@project.id,user:t.id) ,method: :delete, remote: true %></td>
       </tr>
     <% end %>
 
     </tbody>
+     <div id= "msg-alert"></div>
   </table>
+
+
 </div>
 
 
 
-
+<div>
     <%= form_tag("#{project_documents_path(@project.id)}", remote: true) do %>
     <%= text_field_tag :file_name %>
     <%= hidden_field_tag :project_id, @project.id%>
@@ -51,5 +55,5 @@
     <li><%= link_to file.split('/').last, project_document_path(@project.id,@project.id,name:file) %></li>
   <% end %>
 </ul>
-
+</div>
 </div>

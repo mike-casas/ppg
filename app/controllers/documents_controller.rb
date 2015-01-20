@@ -1,5 +1,6 @@
 require 'fileutils'
 class DocumentsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
       @project= Project.find(params[:project_id])
