@@ -29,6 +29,16 @@ var Room = io
       }
     });
 
+    //invitations msg
+
+     socket.on('invitations', function(data) {
+
+            var obj=JSON.parse(data);
+          socket.broadcast.to(obj.room).send(data);
+
+
+    });
+
     // show file create
 
     socket.on('event_file_create', function(data) {

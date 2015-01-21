@@ -20,18 +20,47 @@
           </button>
           <%= link_to ('<span style="font-size:18px; color:#3498db;"><strong>PairDev</strong></span>').html_safe, root_path , class:"navbar-brand hidden-xs hidden-sm"%>
         </div>
+         <% if current_page?(root_path) %>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <% if current_page?(root_path) %>
+
             <li> <a href="#about" class="smoothScroll"> Nosotros</a></li>
             <li> <a href="#team" class="smoothScroll"> Equipo</a></li>
             <li> <a href="#contact" class="smoothScroll"> Contacto</a></li>
-            <% end %>
             <li><%= link_to "Entrar", new_user_session_path , id:"login-navbar"%></li>
-             <% if user_signed_in? %>
-             <li><%= link_to "Salir", destroy_user_session_path ,method: :delete %></li>
-             <% end %>
+
+
+            </ul>
         </div><!--/.nav-collapse -->
+        <% end %>
+
+        <% if user_signed_in? %>
+
+           <div class="navbar-collapse collapse ">
+          <ul class="nav navbar-nav navbar-right">
+
+
+             <li class="dropdown">
+          <a href="#" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-expanded="false">
+              <div>
+                <strong><%= current_user.name %></strong>
+              </div>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><span class="glyphicon glyphicon-user icon"></span><span class="padding-text">Perfil</span></a></li>
+            <li class="divider"></li>
+            <li><%= link_to ('<span class="glyphicon glyphicon-log-out icon"></span><span class="padding-text">Salir</span>').html_safe, destroy_user_session_path ,method: :delete %></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+            </ul>
+        </div><!--/.nav-collapse -->
+             <% end %>
       </div>
     </div>
     </div>
@@ -40,3 +69,21 @@
 </div>
 </body>
 </html>
+
+<script>
+
+  function notifications(obj){
+  $.amaran({
+   content:{
+          img: obj.owner_img,
+          user:obj.guest,
+          message:'Hola! . te he invitado a colaborar en un nuevo proyecto. ¡Anímate!'
+         },
+      position:'top left',
+      theme:'user white',
+      delay: 4000
+  });
+
+  $('#list-project').append('<a href="/projects/'+obj.data_id+'"><div class="col-lg-3  content-project-invited"><p>'+obj.data_name+'</p></div></a>');
+}
+</script>

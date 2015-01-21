@@ -30,6 +30,7 @@
 
 
 
+
 var room = io.connect('http://localhost:5000/room');
 var content = $('#room-text');
 
@@ -45,34 +46,34 @@ room.on('message', function(msg) {
 
   switch (obj.evento) {
 
-     case "editor":
-            a=obj.editorobj.from.line;
-            b=obj.editorobj.from.ch;
-            t=obj.editorobj.text.join('\n');
+   case "editor":
+   a=obj.editorobj.from.line;
+   b=obj.editorobj.from.ch;
+   t=obj.editorobj.text.join('\n');
 
 
-            if(obj.editorobj.origin== "+delete")
-            {
-              posFrom = CodeMirror.Pos(obj.editorobj.from.line, obj.editorobj.from.ch)
-              posTo = CodeMirror.Pos(obj.editorobj.to.line, obj.editorobj.to.ch)
-              editor.doc.replaceRange('', posFrom,posTo, "ignore");
-            }else {
-              editor.doc.replaceRange(t, CodeMirror.Pos(a,b), null, "ignore");
-            }
+   if(obj.editorobj.origin== "+delete")
+   {
+    posFrom = CodeMirror.Pos(obj.editorobj.from.line, obj.editorobj.from.ch)
+    posTo = CodeMirror.Pos(obj.editorobj.to.line, obj.editorobj.to.ch)
+    editor.doc.replaceRange('', posFrom,posTo, "ignore");
+  }else {
+    editor.doc.replaceRange(t, CodeMirror.Pos(a,b), null, "ignore");
+  }
 
-      case "event_file_create":
+  case "event_file_create":
 
-           $('#list_file').append(obj.data);
+  $('#list_file').append(obj.data);
 
-     default:
-         break;
+   case "invitations":
+         notifications(obj);
+  default:
+  break;
 
       } //end swhitch
 
 
 }); //end room
-
-
 
 
 $(".nav-link").click(function(e) {

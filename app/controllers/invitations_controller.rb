@@ -7,7 +7,9 @@ class InvitationsController < ApplicationController
 
   def create
     @project=  Project.find(params[:project_id])
-    @project.members << User.find_by_email(params[:member_name])
+    @guest= User.find_by_email(params[:member_name])
+    @project.members << @guest
+    @owner_img = Gravatar.new(current_user.email).image_url+"?s=120"
       flash[:notice] = 'Invitado correctamente'
 
   end

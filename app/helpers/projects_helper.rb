@@ -5,7 +5,7 @@ module ProjectsHelper
  if state== 'invited'
 
     html = <<-HTML
-    <div class="col-lg-3  content-project">
+    <div class="col-lg-3  content-project-invited">
       <p>#{project.name}</p>
     </div>
    HTML

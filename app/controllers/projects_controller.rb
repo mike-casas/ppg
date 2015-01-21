@@ -21,9 +21,9 @@ class ProjectsController < ApplicationController
 
 
      FileUtils.mkdir "storage/#{@project.id.to_s}"
+      @state="owned"
 
 
-     redirect_to projects_path
   end
 
   def show

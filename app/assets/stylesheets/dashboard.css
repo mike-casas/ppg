@@ -9,7 +9,7 @@
 
 
 .dashboard-project{
-    margin-top: 5%;
+    margin-top: 1%;
 }
 
 .content-project{
@@ -21,13 +21,29 @@
   border-radius: 10px;
 }
 
-.content-project p{
+.content-project  p{
   margin-top: 10px;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
 
 }
+
+.content-project-invited{
+    background: #6D6D6D;
+    position: relative;
+    color: white;
+    height: 105px;
+    margin: 5px;
+    border-radius: 10px;
+  }
+
+  .content-project-invited p{
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 .content-project  #trash{
     position: absolute;
     bottom: 2px;

@@ -5,6 +5,24 @@ alert('<%= @project.errors.full_messages[0] %>');
 
 <% else%>
 
-window.location.href = '<%= project_path(@project.id) %>'
+
+obj={
+ evento: "invitations",
+ data_name:  "<%= @project.name %>",
+ data_id:  "<%= @project.id %>",
+ room: "<%= @guest.id %>",
+ guest: "<%= @guest.name %>",
+ owner_img: "<%= @owner_img %>"
+}
+
+msg = JSON.stringify(obj);
+
+console.log(msg);
+room.emit('invitations', msg);
+
+
+
+//window.location.href = '<%= project_path(@project.id) %>'
 
 <%end %>
+
