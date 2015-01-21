@@ -1,0 +1,41 @@
+.margin_show_projects{
+    margin-top: 5%;
+    margin-left: 5%;
+   }
+
+
+.container-company{
+
+}
+.container-board{
+  height: 800%;
+
+}
+.container-editor-css{
+   background-color: #23241F;
+   height: 600px;
+   margin:0px;
+   padding:0px;
+}
+
+.container-files{
+   background-color: white ;
+   height: 600px;
+   overflow: scroll;
+}
+
+/* style scroll #B3ABAB*/
+::-webkit-scrollbar {
+     width:5px;    // Vertical bar
+     height:1px;   // Horizontal bar
+     background:#222222;
+}
+
+::-webkit-scrollbar-track-piece  {
+    /* background-color: #222222;*/
+}
+
+::-webkit-scrollbar-thumb {
+   width: 15px;
+   background:rgba(73, 73, 73, 1);
+}

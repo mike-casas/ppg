@@ -1,0 +1,6 @@
+<%= form_tag project_document_path,method: :put  do %>
+<%= text_area_tag(:text, "#{@content}" ,:id=> "room-text") %>
+<%= hidden_field_tag :parameter, @parameter %><br/>
+<%= submit_tag "guardar"%>
+<% end %>
+<li><%= link_to "eliminar", project_document_path(name:@parameter), method: :delete %></li>
