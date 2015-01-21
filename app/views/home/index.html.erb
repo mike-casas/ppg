@@ -4,7 +4,7 @@
   <header class="clearfix">
    <div class="row">
     <div id="container-header" class="col-lg-6 col-lg-offset-3">
-    <button type="button" class="btn btn-lg btn-default outline btn-lg">Entrar</button>
+    <%= link_to "Entrar", new_user_session_path , class:"btn btn-lg btn-default outline btn-lg"%>
     <%= link_to "Registrarse",  new_user_registration_path ,class:"btn btn-lg btn-success btn-lg", id:"sign-up"%>
     <p>Técnica para el desarrollo ágil.</p>
     <p>Entra y Aumenta tu productividad.</p>

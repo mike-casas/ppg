@@ -1,0 +1,52 @@
+/* dashboard*/
+.icon-dashboard{
+  color: #6D6D6D;
+  font-size: 180%;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+
+
+
+.dashboard-project{
+    margin-top: 5%;
+}
+
+.content-project{
+  position: relative;
+  background: #3498db;
+  color: white;
+  height: 105px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.content-project p{
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+.content-project  #trash{
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    color: white;
+    border: none;
+    background: #3498db ;
+}
+
+.blue-dashboard{
+ color:#3498db;
+ font-weight: bold;
+}
+
+.container-dashboard{
+   margin-top: 8%;
+}
+
+.input-create-project{
+
+}
+/* end dashboard*/
