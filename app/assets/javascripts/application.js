@@ -30,7 +30,7 @@
 
 
 
-var room = io.connect('http://localhost:5000/room');
+var room = io.connect('https://radiant-inlet-5181.herokuapp.com/room');
 var content = $('#room-text');
 
 
