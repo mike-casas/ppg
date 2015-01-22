@@ -15,7 +15,7 @@ $('#list-member #<%= params[:user]%>').remove();
 obj={
  evento: "delete_invitations",
  data:  "<%= params[:user] %>",
- room: "<%= @project.id %>",
+ room: "<%= params[:user] %>",
 }
 
 msg = JSON.stringify(obj);

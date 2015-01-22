@@ -10,6 +10,6 @@ function fneditor (){
     gutter: true,
   });
 
- editor.setSize(968, 570)
+editor.setSize(869, 570);
 }
 

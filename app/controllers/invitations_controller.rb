@@ -17,6 +17,5 @@ class InvitationsController < ApplicationController
   def destroy
     @project= Project.find(params[:project_id])
     @project.members.delete User.find(params[:user])
-    flash[:notice]= 'Eliminado correctamente'
    end
 end

@@ -1,23 +1,18 @@
 <div class="margin_show_projects">
   <div class="container-board">
-   <div class="row">
-   <div id= "msg-alert"></div>
-     <div class="col-lg-2 container-files">
-       <div class="input-creater-file">
-
+    <div class="row">
+      <div id= "msg-alert"></div>
+      <div class="col-lg-2 container-files">
+        <div class="input-creater-file">
          <%= form_tag("#{project_documents_path(@project.id)}", remote: true) do %>
          <%= text_field_tag :file_name ,nil, class:"input-namefile",placeholder:'Crear Archivo' %>
          <%= hidden_field_tag :project_id, @project.id%>
          <% end %>
-
        </div>
        <span><strong><i class='fa fa-fw fa-folder'></i><%= @project.name %></strong></span>
-
-
        <div class="container-list-file">
 
         <ul id="list_file">
-
           <% Dir.glob("storage/#{@project.id}/*").each do |file| %>
           <% file_name= file.split('/').last %>
           <% exten = file_name.split('.').last %>
@@ -29,65 +24,69 @@
 
     </div>
     <div class="col-lg-8 container-editor-css" id="container-editor">
-     <%= text_area_tag(:text, "#{@content}" ,:id=> "room-text") %>
+      <%= text_area_tag(:text, "#{@content}" ,:id=> "room-text") %>
 
 
    </div>
 
-<!-- ========================colum invited ===========================================-->
+   <!-- ========================colum invited ===========================================-->
    <div class="col-lg-2 container-company">
      <h4><strong> Propietario</strong></h4>
 
-       <div class="tip_invited">
+     <div class="tip_invited">
 
-          <%= image_tag(Gravatar.new(@owner.email).image_url+"?s=40", class:"img-circle") %>
-          <p><%= @owner.name%></p>
-          <span><%= @owner.email%></span>
+      <%= image_tag(Gravatar.new(@owner.email).image_url+"?s=40", class:"img-circle") %>
+      <p><%= @owner.name%></p>
+      <span><%= @owner.email%></span>
 
-       </div>
-      <hr/>
-      <h4><strong>Miembros</strong></h4>
+    </div>
+    <hr/>
+    <h4><strong>Miembros</strong></h4>
 
-      <div class="list-member" id='list-member'>
-        <% @members.each do |t| %>
+    <div class="list-member" id='list-member'>
+      <% @members.each do |t| %>
 
-               <div class="tip_invited" id="<%= t.id%>">
+      <div class="tip_invited" id="<%= t.id%>">
 
-                      <%= image_tag(Gravatar.new(t.email).image_url+"?s=40", class:"img-rounded") %>
-                      <p><%= t.name%></p>
-                      <span><%= t.email%></span>
-                      <%= link_to ("|<i class='fa fa-fw fa-trash '></i>").html_safe,  project_invitation_path(@project.id,@project.id,user:t.id) ,method: :delete, remote: true , data:{confirm:"Deseas eliminarlo ?"} %>
+        <%= image_tag(Gravatar.new(t.email).image_url+"?s=40", class:"img-rounded") %>
+        <p><%= t.name%></p>
+        <span><%= t.email%></span>
+        <%= link_to ("|<i class='fa fa-fw fa-trash '></i>").html_safe,  project_invitation_path(@project.id,@project.id,user:t.id) ,method: :delete, remote: true , data:{confirm:"Deseas eliminarlo ?"} %>
 
-                  </div>
-        <% end %>
-        </div>
+      </div>
+      <% end %>
+    </div>
 
-       <hr/>
-       <% if @owner.id== current_user.id %>
-       <p>
-       <%= link_to 'invitar', new_project_invitation_path(@project.id,project:@project.id), remote: true , class:"btn btn-success"%> <% end%></p>
+    <hr/>
+    <% if @owner.id== current_user.id %>
+    <p>
+     <%= link_to 'invitar', new_project_invitation_path(@project.id,project:@project.id), remote: true , class:"btn btn-success"%> <% end%></p>
    </div> <!-- ==end colum =-->
 
 
  </div>
 
-     <div class="row">
-       <div class="col-lg-3 ">
+ <div class="row">
+   <div class="col-lg-3 ">
 
-          </div>
-          <div class="col-lg-8">
-            <div id="botones">
-            </div>
-          </div>
-      </div>
+   </div>
+   <div class="col-lg-8">
+    <div id="botones">
+    </div>
+  </div>
+</div>
 </div>
 
 </div>
 
 <script >
+
   init(<%= @project.id %>);
 
+
+
   fneditor();
+
 
   editor.on('change', function(editor,changeobj) {
    if(changeobj.origin != "ignore"){
@@ -104,71 +103,4 @@
 </script>
 
 
-<!-- <div class="container">
 
-<h1>project</h1>
-
-<%= @project.name %>
-
-<br/>
-
-   <h2>owner</h2>
-
-   <%= @owner.name%>
-   <br/>
-
-  <div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>members</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @members.each do |t| %>
-      <tr id="<%= t.id%>">
-        <td><%= t.name %></td>
-        <td><%= t.id %></td>
-        <td><%= link_to "Eliminar",  project_invitation_path(@project.id,@project.id,user:t.id) ,method: :delete, remote: true %></td>
-      </tr>
-    <% end %>
-
-    </tbody>
-     <div id= "msg-alert"></div>
-  </table>
-
-
-</div>
-
-
-
-<div>
-    <%= form_tag("#{project_documents_path(@project.id)}", remote: true) do %>
-    <%= text_field_tag :file_name %>
-    <%= hidden_field_tag :project_id, @project.id%>
-    <%= submit_tag "guardar"%>
-  <% end %>
-
- <hr/>
-  <% if @project.user_id== current_user.id %>
-  <%= link_to 'invitaciones', new_project_invitation_path(@project.id,project:@project.id), remote: true%> <% end%>
- <hr/>
-
-
-  <ul id="list_file">
-  <% Dir.glob("storage/#{@project.id}/*").each do |file| %>
-
-    <li><%= link_to file.split('/').last, project_document_path(@project.id,@project.id,name:file) %></li>
-  <% end %>
-</ul>
-</div>
-</div>
-
-<script>
-
-  init(<%= @project.id %>);
-
-</script>
-
-
--->
