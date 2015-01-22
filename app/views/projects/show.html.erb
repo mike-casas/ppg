@@ -2,19 +2,32 @@
   <div class="container-board">
    <div class="row">
    <div class="col-lg-2 container-files">
+       <div class="input-creater-file">
+
+       <%= form_tag("#{project_documents_path(@project.id)}", remote: true) do %>
+          <%= text_field_tag :file_name ,nil, class:"input-namefile",placeholder:'Crear Archivo' %>
+           <%= hidden_field_tag :project_id, @project.id%>
+          <% end %>
+
+       </div>
    <span><strong><i class='fa fa-fw fa-folder'></i><%= @project.name %></strong></span>
-      <ul id="list_file">
-
-        <% Dir.glob("storage/#{@project.id}/*").each do |file| %>
-
-            <% file_name= file.split('/').last %>
-            <% exten = file_name.split('.').last %>
 
 
-          <li><%= extension(exten) %><%= link_to file_name, project_document_path(@project.id,@project.id,name:file), remote:true %></li>
-        <% end %>
-      </ul>
+       <div class="container-list-file">
 
+            <ul id="list_file">
+
+              <% Dir.glob("storage/#{@project.id}/*").each do |file| %>
+
+                  <% file_name= file.split('/').last %>
+                  <% exten = file_name.split('.').last %>
+
+
+                <li><%= extension(exten) %><%= link_to file_name, project_document_path(@project.id,@project.id,name:file), remote:true %></li>
+              <% end %>
+            </ul>
+
+       </div>
 
     </div>
    <div class="col-lg-8 container-editor-css" id="container-editor">

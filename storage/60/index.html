@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+  
+var listOfSharks = ["Sea Pain", "Great Wheezy",
+  "DJ Chewie", "Lil' Bitey",
+  "Finmaster Flex", "Swim Khalifa",
+  "Ice Teeth", "The Notorious J.A.W."];
+  
+  var listOfTargets = ["icicle bat", "snow yeti",
+  "killer penguin", "frost tiger",
+  "polar bear", "iceberg",
+  "blue witch", "wooly mammoth"];
+
+
+function makeTargetAssigner( sharks, targets ){
+
+  var nombre ;
+  nombre=function(param){
+    listOfTargets.map(function(p, i){
+      if (p==param){
+        alert("What up, "+p+"!\n"+
+         "There've been"+listOfTargets[i]+" sightings in our 'hood!\n"+"Time for a swim-by lasering, homie!")   ;
+      }
+
+    })    ;  
+    return nombre;
+
+  }
+
+
+
+
+
+  var getTargetFor = makeTargetAssigner(  listOfSharks,
+    listOfTargets );
+ 
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

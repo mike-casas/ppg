@@ -1,0 +1,49 @@
+.contenido{
+
+	width:400px;
+	margin: 20px auto;
+	border:1px solid #5E5E5E;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: rgba(40,54,229,0.1);
+}
+.rango{
+	display:block;
+	width: 200px;
+}
+#primero, #segundo, #cambio{
+	display: inline-block;
+	margin:5px;
+
+}
+#valor{
+	display: inline-block;
+	width: 200px;
+}
+#label{
+	display: block;
+}
+
+.submit{
+	display: block;
+
+}
+span{
+	margin: 0;
+	padding: 0;
+}
+.btn-cambio{margin: 0;
+	padding: 0;}
+
+	.page-header{
+
+		margin: auto;
+	}
+
+	#resultado{
+		
+		margin-top: 10px;
+		color: red;
+		font-weight: bold;
+
+	}

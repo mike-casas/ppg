@@ -21,9 +21,35 @@
 .container-files{
    background-color: white ;
    height: 600px;
+
+}
+
+.container-files span{
+     font-size: 20px;
+     padding-top-top: 40px;
+}
+
+.container-list-file{
+   height: 516px;
    overflow: scroll;
 }
 
+.input-creater-file{
+   margin: 3px 0px 10px 0px;
+   padding: 0px;
+
+}
+
+.input-namefile{
+  background-color: rgba(30,156,255,0.2);
+  border-radius: 7px;
+  border : none;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  height: 45px;
+  padding-left: 7px;
+}
 /* style scroll #B3ABAB*/
 ::-webkit-scrollbar {
      width:5px;    // Vertical bar

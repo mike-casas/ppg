@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+
+  <title>Theme Template for Bootstrap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="conversor.css">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+
+    <body role="document">
+
+     
+      <div class="container">
+        
+        <div class="contenido"><div class="form-group rango">
+         <label for="exampleInputEmail1" id="label">convertir</label>
+         <input type="email" class="form-control" id="valor" placeholder="Digite el Valor.."> </div>
+         
+         <select class="form-control" id="primero">
+           <option value="Milimetro">Milimetros</option>
+           <option value="Centimetro">Centimetros</option>
+           <option value="Metro">Metros</option>
+           <option value="Pulgada">Pulgadas</option>
+           <option value="Pie">Pies</option>
+           <option value="Yarda">Yardas</option>
+         </select>
+
+         <select class="form-control" id="segundo" >
+          <option value="Milimetro">Milimetros</option>
+          <option value="Centimetro" selected>Centimetros</option>
+          <option value="Metro">Metros</option>
+          <option value="Pulgada">Pulgadas</option>
+          <option value="Pie">Pies</option>
+          <option value="Yarda">Yardas</option>
+        </select>
+        
+        <button type="submit" class="btn btn-primary submit " onclick=conversor()>Convertir</button>
+        <div class="page-header"></div>  
+        
+        <div id="resultado" >0</div>
+      </div>
+    </div> 
+    <script src="conversor.js"></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
+  </html>
