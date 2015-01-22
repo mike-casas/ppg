@@ -1,6 +1,6 @@
 class InvitationsController < ApplicationController
     before_action :authenticate_user!
-
+#User.where("email LIKE ? OR email LIKE ?", "#{params[:q]}%")
   def new
   @project= Project.find(params[:project])
   end
