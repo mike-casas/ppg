@@ -19,7 +19,6 @@
 //= require retina
 //= require jquery.easing.1.3
 //= require smoothscroll
-//= require jquery-func
 //= require codemirror
 //= require codemirror/modes/xml
 //= require codemirror/modes/htmlmixed
@@ -31,7 +30,7 @@
 
 
 
-var room = io.connect('http://localhost:5000/room');
+var room = io.connect('https://radiant-inlet-5181.herokuapp.com/room');
 var content = $('#room-text');
 
 
