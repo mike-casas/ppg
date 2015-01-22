@@ -5,7 +5,7 @@ module ProjectsHelper
    if state== 'invited'
 
     html = <<-HTML
-    <div class="col-lg-3  content-project-invited">
+    <div class="col-lg-3  content-project-invited" id='#{project.id}'>
       <p>#{project.name}</p>
     </div>
     HTML
@@ -15,7 +15,7 @@ module ProjectsHelper
 
   else
     html = <<-HTML
-    <div class="col-lg-3  content-project">
+    <div class="col-lg-3  content-project" id="#{project.id}">
       <p>#{project.name}</p>
       <i class='fa fa-fw fa-user icon-dashboard'></i>
       <a id="trash" data-confirm="Deseas eliminar este registro" rel="nofollow" data-method="delete" href="/projects/#{project.id}">
@@ -71,5 +71,7 @@ module ProjectsHelper
       end
 
   end
+
+
 
 end

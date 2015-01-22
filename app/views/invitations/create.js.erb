@@ -5,9 +5,13 @@ alert('<%= @project.errors.full_messages[0] %>');
 
 <% else%>
 
+  text= "<%= j render 'projects/tip_member'%>"
+
+  $('#list-member').append(text);
 
 obj={
  evento: "invitations",
+ text: text,
  data_name:  "<%= @project.name %>",
  data_id:  "<%= @project.id %>",
  room: "<%= @guest.id %>",
@@ -17,12 +21,11 @@ obj={
 
 msg = JSON.stringify(obj);
 
-console.log(msg);
+
 room.emit('invitations', msg);
 
 
 
-//window.location.href = '<%= project_path(@project.id) %>'
 
 <%end %>
 

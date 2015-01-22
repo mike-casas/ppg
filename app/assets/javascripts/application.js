@@ -44,33 +44,43 @@ room.on('message', function(msg) {
 
   var obj=JSON.parse(msg);
 
-  switch (obj.evento) {
 
-   case "editor":
-   a=obj.editorobj.from.line;
-   b=obj.editorobj.from.ch;
-   t=obj.editorobj.text.join('\n');
+   console.log(obj);
+   if ("editor"==obj.evento){
+
+           a=obj.editorobj.from.line;
+           b=obj.editorobj.from.ch;
+           t=obj.editorobj.text.join('\n');
 
 
-   if(obj.editorobj.origin== "+delete")
-   {
-    posFrom = CodeMirror.Pos(obj.editorobj.from.line, obj.editorobj.from.ch)
-    posTo = CodeMirror.Pos(obj.editorobj.to.line, obj.editorobj.to.ch)
-    editor.doc.replaceRange('', posFrom,posTo, "ignore");
-  }else {
-    editor.doc.replaceRange(t, CodeMirror.Pos(a,b), null, "ignore");
-  }
+           if(obj.editorobj.origin== "+delete")
+           {
+            posFrom = CodeMirror.Pos(obj.editorobj.from.line, obj.editorobj.from.ch)
+            posTo = CodeMirror.Pos(obj.editorobj.to.line, obj.editorobj.to.ch)
+            editor.doc.replaceRange('', posFrom,posTo, "ignore");
+          }else {
+            editor.doc.replaceRange(t, CodeMirror.Pos(a,b), null, "ignore");
+          }
+     }
+  if ("event_file_create"==obj.evento){
 
-  case "event_file_create":
+      $('#list_file').append(obj.data);
+    }
 
-  $('#list_file').append(obj.data);
+if ("invitations"==obj.evento){
 
-   case "invitations":
          notifications(obj);
-  default:
-  break;
+          $('#list-member').append(obj.text);
 
-      } //end swhitch
+       }
+
+       if ("delete_invitations"==obj.evento){
+
+       $('#list-member #'+obj.data+'').remove();
+
+
+      }
+
 
 
 }); //end room

@@ -1,0 +1,48 @@
+
+
+.container-company{
+   margin:0px;
+   padding-left: 5px;
+}
+
+.tip_invited{
+
+    /*background-color: blue;*/
+    color: bold;
+    width: 220px;
+    height: 50px;
+    margin-bottom: 3px;
+}
+.tip_invited img{
+
+   display: inline-block;
+   float: left;
+}
+.tip_invited p{
+   margin-top:9px;
+   margin-left: 10px;
+   padding: 0px;
+   display: inline-block;
+   float: left;
+   width: 130px;
+   line-height: 1px;
+   font-weight: bold;
+}
+
+.tip_invited span{
+   margin-left: 10px;
+   padding: 0px;
+   display: inline-block;
+   float: left;
+  font-size: 12px;
+   line-height: 1px;
+}
+.list-member{
+   width: 220px;
+   height: 200px;
+   overflow-y: scroll;
+    overflow-x: hidden
+
+
+}
+

@@ -1,5 +1,26 @@
+$.amaran({
+    content:{
+        bgcolor:'#27ae60',
+        color:'#fff',
+        message:'Eliminado correctamente'
+       },
+    theme:'colorful',
+    position:'top right'
+});
 
-    $('#msg-alert').html("<%= j render 'error_delete'%>");
- $('#msg-alert').show();
-$('table #<%= params[:user]%>').remove();
+
+$('#list-member #<%= params[:user]%>').remove();
+
+
+obj={
+ evento: "delete_invitations",
+ data:  "<%= params[:user] %>",
+ room: "<%= @project.id %>",
+}
+
+msg = JSON.stringify(obj);
+
+console.log(msg);
+
+room.emit('delete_invitations', msg);
 

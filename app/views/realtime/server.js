@@ -19,15 +19,10 @@ var Room = io
 
     //editor
     socket.on('event_editor', function(data) {
-      if (joinedRoom) {
-          socket.broadcast.to(joinedRoom).send(data);
-      } else {
-        socket.send(
-           "you're not joined a room." +
-           "select a room and then push join."
-        );
-      }
-    });
+
+            var obj=JSON.parse(data);
+          socket.broadcast.to(obj.room).send(data);
+          });
 
     //invitations msg
 
@@ -39,18 +34,22 @@ var Room = io
 
     });
 
+    // delete invitations
+
+     socket.on('delete_invitations', function(data) {
+
+            var obj=JSON.parse(data);
+
+          socket.broadcast.to(obj.room).send(data);
+    });
+
     // show file create
 
     socket.on('event_file_create', function(data) {
-      if (joinedRoom) {
-         console.log(data);
-         socket.broadcast.to(joinedRoom).send(data);
-      } else {
-        socket.send(
-           "you're not joined a room." +
-           "select a room and then push join."
-        );
-      }
+
+          var obj=JSON.parse(data);
+          socket.broadcast.to(obj.room).send(data);
+
     });
 
   });

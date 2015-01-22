@@ -1,0 +1,6 @@
+<div   class="tip_invited" id="<%= @guest.id%>">
+  <%= image_tag(Gravatar.new(@guest.email).image_url+"?s=40", class:"img-rounded") %>
+  <p><%= @guest.name%></p>
+  <span><%= @guest.email%></span>
+  <%= link_to ("|<i class='fa fa-fw fa-trash '></i>").html_safe,  project_invitation_path(@project.id,@project.id,user:@guest.id) ,method: :delete, remote: true , data:{confirm:"Deseas eliminarlo ?"} %>
+</div>

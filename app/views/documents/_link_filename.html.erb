@@ -1,1 +1,8 @@
-<li><%= link_to params[:file_name], project_document_path(@project.id,@project.id,name:@path) %></li>
+
+
+                  <% file_name= params[:file_name] %>
+                  <% exten = file_name.split('.').last %>
+                <li><%= extension(exten) %><%= link_to params[:file_name], project_document_path(@project.id,@project.id,name:@path), remote:true %></li>
+
+
+
