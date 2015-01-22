@@ -2,14 +2,16 @@
   <div class="container-board">
    <div class="row">
    <div class="col-lg-2 container-files">
-   <span><strong><%= @project.name %></strong></span>
+   <span><strong><i class='fa fa-fw fa-folder'></i><%= @project.name %></strong></span>
       <ul id="list_file">
 
         <% Dir.glob("storage/#{@project.id}/*").each do |file| %>
 
             <% file_name= file.split('/').last %>
             <% exten = file_name.split('.').last %>
-          <li><%= link_to file_name, project_document_path(@project.id,@project.id,name:file), remote:true %></li>
+
+
+          <li><%= extension(exten) %><%= link_to file_name, project_document_path(@project.id,@project.id,name:file), remote:true %></li>
         <% end %>
       </ul>
 
@@ -31,17 +33,7 @@
 <script >
 init(<%= @project.id %>);
 
-    editor= CodeMirror.fromTextArea($("#room-text").get(0), {
-    lineNumbers: true,
-    styleActiveLine: true,
-    matchBrackets: true,
-    mode: "javascript",
-    theme: "midnight",
-    indentUnit : 4,
-    gutter: true,
-  });
-
- editor.setSize(870, 570)
+  fneditor();
 
   editor.on('change', function(editor,changeobj) {
      if(changeobj.origin != "ignore"){

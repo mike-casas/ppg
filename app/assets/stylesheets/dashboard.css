@@ -1,3 +1,40 @@
+/* iconos */
+
+.css3{
+  color:#F5500B;
+}
+
+.html5{
+  color: #0D0AFD;
+}
+
+.erb{
+  color: #00A61A;
+}
+
+.rb::before   {
+  content: url('rb.ico') ;
+}
+
+
+.js::before   {
+  content: url('js.ico') ;
+}
+
+#list_file {
+   list-style-type: none;
+   padding: 4px;
+    margin: 10px;
+    font-size: 20px;
+
+}
+
+#list_file li a {
+  color: black;
+
+}
+
+
 /* dashboard*/
 .icon-dashboard{
   color: #6D6D6D;
@@ -64,5 +101,9 @@
 
 .input-create-project{
 
+}
+
+.container-files span{
+     font-size: 20px;
 }
 /* end dashboard*/

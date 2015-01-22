@@ -1,16 +1,15 @@
-$(document).on('page:change', function() {
-function editor (){
- editor.setSize(870, 570)
+function fneditor (){
 
-  editor.on('change', function(editor,changeobj) {
-     if(changeobj.origin != "ignore"){
-        obj={
-            editorobj: changeobj,
-            evento: 'editor'
-        }
-       msg = JSON.stringify(obj);
-      room.emit('event_editor', msg);
-     }
-   });
+ editor= CodeMirror.fromTextArea($("#room-text").get(0), {
+    lineNumbers: true,
+    styleActiveLine: true,
+    matchBrackets: true,
+    mode: "javascript",
+    theme: "midnight",
+    indentUnit : 4,
+    gutter: true,
+  });
+
+ editor.setSize(870, 570)
 }
-}
+
