@@ -1,5 +1,12 @@
 <%= form_tag project_document_path,method: :put  do %>
 <%= text_area_tag(:text, "#{@content}" ,:id=> "room-text") %>
 <%= hidden_field_tag :parameter, @parameter %><br/>
+
+<div>
+
 <%= submit_tag "guardar" , class:"btn btn-primary"%>
+
 <% end %>
+
+<%= link_to "eliminar", project_document_path(name:@parameter), method: :delete , class:"btn btn-danger"%>
+</div>
